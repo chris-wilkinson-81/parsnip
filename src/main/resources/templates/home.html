@@ -1,0 +1,53 @@
+<!DOCTYPE HTML>
+<html lan="en" xmlns:th="http://www.thymeleaf.org" ng-app="admin-console-app">
+<head>
+    <title>PARSnip</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" type="text/css" href="/assets/bower_components/bootstrap/dist/css/bootstrap.css" />	
+    <link rel="stylesheet" type="text/css" href="/assets/parsnip/styles/styles.css" />	
+    		
+	<script type="text/javascript" src="/assets/bower_components/jquery/dist/jquery.js"></script>
+	<script type="text/javascript" src="/assets/bower_components/jquery-ui/jquery-ui.js"></script>
+	<script type="text/javascript" src="/assets/bower_components/angular/angular.js"></script>
+	<script type="text/javascript" src="/assets/bower_components/angular-bootstrap/ui-bootstrap.js"></script>
+	<script type="text/javascript" src="/assets/bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+	<script type="text/javascript" src="/assets/bower_components/angular-route/angular-route.js"></script>
+	<script type="text/javascript" src="/assets/bower_components/angular-resource/angular-resource.js"></script>	
+	<script type="text/javascript" src="/assets/bower_components/angular-ui-sortable/sortable.js"></script>
+		
+	<script type="text/javascript" src="/assets/parsnip/javascripts/parsnip.js"></script>
+	<script type="text/javascript" src="/assets/parsnip/javascripts/controllers.js"></script>	
+	<script type="text/javascript" src="/assets/parsnip/javascripts/services.js"></script>	
+</head>
+<body>
+	<header>
+		<h2 class="col-md-10">Parsnip</h2>
+		<div class="col-md-2 logout-controls">
+			<form action="/logout" method="post">
+	            <input type="submit" value="Sign Out"/>
+	        </form>
+        </div>
+	</header>
+	<div class="col-md-3">
+		<h4>Apps</h4>
+		<ul>
+			<li><a href="#/invoices">Invoices</a></li>	
+			<li><a href="#/customers">Customers</a></li>	
+			<li><a href="#/people">People</a></li>			
+		</ul>
+	</div>
+	<div class="col-md-7 main">
+		<div class="alert alert-success" ng-show="successMsg">
+		  	<strong>{{successMsg}}</strong>
+		</div>
+		
+		<ul class="list-inline app-actions" ng-show="topNav=='people'">
+			<li><a href="#/people">All People</a></li>
+			<li><a href="#/person-create">Create Person</a></li>	
+		</ul>
+		
+		<div ng-view="ng-view">
+		</div>
+	</div>
+</body>
+</html>
