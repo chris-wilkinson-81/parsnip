@@ -1,5 +1,5 @@
 <!DOCTYPE HTML>
-<html lan="en" xmlns:th="http://www.thymeleaf.org" ng-app="admin-console-app">
+<html lan="en" xmlns:th="http://www.thymeleaf.org" ng-app="parsnip-app">
 <head>
     <title>PARSnip</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
@@ -44,6 +44,11 @@
 		<ul class="list-inline app-actions" ng-show="topNav=='people'">
 			<li><a href="#/people">All People</a></li>
 			<li><a href="#/person-create">Create Person</a></li>	
+		</ul>
+		
+		<ul class="list-inline app-actions" ng-show="topNav=='customers'">
+			<li><a href="#/customers">All Customers</a></li>
+			<li><a href="#/customer-create">Create Customer</a></li>	
 		</ul>
 		
 		<div ng-view="ng-view">

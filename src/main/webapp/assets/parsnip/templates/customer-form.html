@@ -1,0 +1,89 @@
+<h4><span ng-show="isCreate == true">Create</span><span ng-show="isEdit == true">Edit</span> Customer</h4>
+<form name="customerForm" novalidate>
+
+    <div class="form-group" ng-class="{ 'has-error': customerForm.name.$invalid }" >
+    	<label>Customer Name</label>
+        <input type="text" class="form-control" name="name" ng-model="customer.name" value="{{customer.name}}" placeholder="Customer name" required="" />
+    	<div ng-show="customerForm.$submitted || customerForm.name.$touched">
+      		<div ng-show="customerForm.name.$error.required">Please enter the customer name</div>
+    	</div>
+    </div>
+    
+    <div class="form-group" ng-class="{ 'has-error': customerForm.businessNumber.$invalid }" >
+    	<label>Business Number</label>
+        <input type="text" class="form-control" name="businessNumber" ng-model="customer.businessNumber" value="{{customer.businessNumber}}" placeholder="Business Number" required="" />
+    	<div ng-show="customerForm.$submitted || customerForm.businessNumber.$touched">
+      		<div ng-show="customerForm.businessNumber.$error.required">Please enter the customer's Business Number</div>
+    	</div>
+    </div>
+    
+    <div class="form-group" ng-class="{ 'has-error': customerForm.apartmentNumber.$invalid }" >
+    	<label>Apartment or Unit # (optional)</label>
+        <input type="text" class="form-control" name="apartmentNumber" ng-model="customer.apartmentNumber" value="{{customer.apartmentNumber}}" placeholder="Apartment or Unit #"/>
+    </div>
+    
+    <div class="form-group" ng-class="{ 'has-error': customerForm.streetAddress.$invalid }" >
+    	<label>Street Address</label>
+        <input type="text" class="form-control" name="streetAddress" ng-model="customer.streetAddress" value="{{customer.streetAddress}}" placeholder="Street Address" required="" />
+    	<div ng-show="customerForm.$submitted || customerForm.streetAddress.$touched">
+      		<div ng-show="customerForm.streetAddress.$error.required">Please enter the customer's Street Address</div>
+    	</div>
+    </div>
+    
+    <div class="form-group" ng-class="{ 'has-error': customerForm.city.$invalid }" >
+    	<label>City</label>
+        <input type="text" class="form-control" name="city" ng-model="customer.city" value="{{customer.city}}" placeholder="City" required="" />
+    	<div ng-show="customerForm.$submitted || customerForm.city.$touched">
+      		<div ng-show="customerForm.city.$error.required">Please enter the customer's City</div>
+    	</div>
+    </div>
+    
+    <div class="form-group" ng-class="{ 'has-error': customerForm.province.$invalid }" >
+    	<label>Province or State</label>
+        <input type="text" class="form-control" name="province" ng-model="customer.province" value="{{customer.province}}" placeholder="Province or State" required="" />
+    	<div ng-show="customerForm.$submitted || customerForm.province.$touched">
+      		<div ng-show="customerForm.province.$error.required">Please enter the customer's Province, State or Territory</div>
+    	</div>
+    </div>
+    
+    <div class="form-group" ng-class="{ 'has-error': customerForm.country.$invalid }" >
+    	<label>Country</label>
+        <input type="text" class="form-control" name="country" ng-model="customer.country" value="{{customer.country}}" placeholder="Country" required="" />
+    	<div ng-show="customerForm.$submitted || customerForm.country.$touched">
+      		<div ng-show="customerForm.country.$error.required">Please enter the customer's Country</div>
+    	</div>
+    </div>
+    
+    <div class="form-group" ng-class="{ 'has-error': customerForm.postalCode.$invalid }" >
+    	<label>Postal or Zip Code</label>
+        <input type="text" class="form-control" name="postalCode" ng-model="customer.postalCode" value="{{customer.postalCode}}" placeholder="Postal or Zip Code" required="" />
+    	<div ng-show="customerForm.$submitted || customerForm.postalCode.$touched">
+      		<div ng-show="customerForm.postalCode.$error.required">Please enter the customer's Postal or Zip Code</div>
+    	</div>
+    </div>
+    
+    <div class="form-group" ng-class="{ 'has-error': customerForm.phoneNumber.$invalid }" >
+    	<label>Phone Number</label>
+        <input type="text" class="form-control" name="phoneNumber" ng-model="customer.phoneNumber" value="{{customer.phoneNumber}}" placeholder="Phone Number" required="" />
+    	<div ng-show="customerForm.$submitted || customerForm.phoneNumber.$touched">
+      		<div ng-show="customerForm.phoneNumber.$error.required">Please enter the customer's Phone Number</div>
+    	</div>
+    </div>
+    
+    <div class="form-group" ng-class="{ 'has-error': customerForm.faxNumber.$invalid }" >
+    	<label>Fax Number (optional)</label>
+        <input type="text" class="form-control" name="faxNumber" ng-model="customer.faxNumber" value="{{customer.faxNumber}}" placeholder="Fax Number" />
+    </div>
+    
+    <div class="form-group" ng-class="{ 'has-error': customerForm.emailAddress.$invalid }" >
+    	<label>Email Address (optional)</label>
+        <input type="text" class="form-control" name="emailAddress" ng-model="customer.emailAddress" value="{{customer.emailAddress}}" placeholder="General Inforation email address" />
+    </div>
+    
+    <div class="form-group" ng-class="{ 'has-error': customerForm.websiteUrl.$invalid }" >
+    	<label>Website URL (optional)</label>
+        <input type="text" class="form-control" name="websiteUrl" ng-model="customer.websiteUrl" value="{{customer.websiteUrl}}" placeholder="Website URL"/>
+    </div>
+    
+    <button class="btn btn-primary" ng-click="save(customer)">Save</button>
+</form>

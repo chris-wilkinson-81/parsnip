@@ -63,6 +63,12 @@
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
+				<configuration>
+		            <jvmArguments>
+		                -Xdebug -Xrunjdwp:transport=dt_socket,server=y,suspend=n,address=8788 -Dserver.port=8181
+		            </jvmArguments>
+		            <fork>true</fork>
+        		</configuration>
             </plugin>
         </plugins>
     </build>
