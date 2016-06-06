@@ -1,1 +1,27 @@
 <h2>People</h2>
+
+<table class="table">
+	<thead>
+		<tr>
+			<th>Name</th>
+			<th>Email</th>
+			<th>Role</th>
+			<th>Actions</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr ng-repeat="person in people">
+			<td>{{person.firstName}}&nbsp;{{person.lastName}}</td>
+			<td>{{person.emailAddress}}</td>
+			<td>{{person.role}}</td>
+			<td>
+				<a href="#/person-details/{{person.id}}">View Details</a> | 
+				<a href="#/person-edit/{{person.id}}">Edit</a>
+			</td>
+		</tr>
+		<tr colspan="4" ng-show="people.length == 0"><td>Please create some people</td></tr>
+	</tbody>
+	<tfoot>
+		<td colspan="4"></td>
+	</tfoot>
+</table>

@@ -1,0 +1,58 @@
+<h4><span ng-show="isCreate == true">Create</span><span ng-show="isEdit == true">Edit</span> Person</h4>
+<form name="personForm" novalidate>
+
+    <div class="form-group" ng-class="{ 'has-error': personForm.firstName.$invalid }" >
+    	<label>First Name</label>
+        <input type="text" class="form-control" name="firstName" ng-model="person.firstName" value="{{person.firstName}}" placeholder="First name" required="" />
+    	<div ng-show="personForm.$submitted || personForm.firstName.$touched">
+      		<div ng-show="personForm.firstName.$error.required">Please enter the person's first name</div>
+    	</div>
+    </div>
+    
+    <div class="form-group" ng-class="{ 'has-error': personForm.name.$invalid }" >
+    	<label>Last Name</label>
+        <input type="text" class="form-control" name="lastName" ng-model="person.lastName" value="{{person.lastName}}" placeholder="Last name" required="" />
+    	<div ng-show="personForm.$submitted || personForm.lastName.$touched">
+      		<div ng-show="personForm.lastName.$error.required">Please enter the person's last name</div>
+    	</div>
+    </div>
+    
+    <div class="form-group" ng-class="{ 'has-error': personForm.emailAddress.$invalid }" >
+    	<label>Email Address</label>
+        <input type="email" class="form-control" name="emailAddress" ng-model="person.emailAddress" value="{{person.emailAddress}}" placeholder="Email Address" required="" />
+    	<div role="alert" ng-show="personForm.$submitted || personForm.emailAddress.$touched">
+      		<div class="error" ng-show="personForm.emailAddress.$error.required">Please enter the person's email address</div>
+      		<div class="error" ng-show="personForm.emailAddress.$error.email">Please enter the person's email address</div>
+    	</div>
+    </div>
+    
+    <div class="form-group" ng-class="{ 'has-error': personForm.role.$invalid }" >
+    	<label>User Role</label>
+		<select class="form-control" ng-options="role as role.label for role in roles track by role.id" ng-model="person.role"  required=""  name="role">
+			<option value="">-- choose role --</option>
+		</select>
+
+    	<div role="alert" ng-show="personForm.$submitted || personForm.role.$touched">
+      		<div class="error" ng-show="personForm.role.$error.required">Please select the person's role</div>
+    	</div>
+    </div>
+    
+    <div class="form-group" ng-class="{ 'has-error': personForm.password.$invalid }" >
+    	<label>Password</label>
+        <input type="password" class="form-control" name="password" ng-model="person.password" value="{{person.password}}" placeholder="Password" required="" />
+    	<div ng-show="personForm.$submitted || personForm.password.$touched">
+      		<div ng-show="personForm.password.$error.required">Please enter the person's password</div>
+    	</div>
+    </div>
+
+	<div class="form-group" ng-class="{ 'has-error': personForm.confirmPassword.$invalid }" >
+    	<label>Confirm Password</label>
+        <input type="password" class="form-control" name="confirmPassword" ng-model="person.confirmPassword" value="{{person.confirmPassword}}" placeholder="Confirm Password" required="" />
+    	<div ng-show="personForm.$submitted || personForm.confirmPassword.$touched">
+      		<div ng-show="personForm.confirmPassword.$error.required || person.confirmPassword != person.password">This field must match the password above</div>
+    	</div>
+    </div>
+
+    
+    <button class="btn btn-primary" ng-click="save(person)">Save</button>
+</form>

@@ -16,6 +16,14 @@ parsnipApp.config(['$routeProvider', '$locationProvider','$httpProvider',
                 templateUrl: "/assets/parsnip/templates/people.html",
                 controller: 'PeopleController'
             }).
+            when('/person-create', {
+                templateUrl: "/assets/parsnip/templates/person-form.html",
+                controller: 'CreatePersonController'
+            }).
+            when('/person-details/:personId', {
+                templateUrl: "/assets/parsnip/templates/person-details.html",
+                controller: 'PersonDetailsController'
+            }).
             when('/invoices', {
                 templateUrl: "/assets/parsnip/templates/invoices.html",
                 controller: 'InvoicesController'

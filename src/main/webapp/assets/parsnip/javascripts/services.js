@@ -2,7 +2,7 @@ var parsnipServices = angular.module('parsnipServices', ['ngResource']);
 
 parsnipServices.factory('Person', ['$resource',
     function($resource) {
-    	return $resource('/api/people', {}, {
+    	return $resource('/api/people/:personId', {}, {
     		query: {method:'GET', params:{}, isArray:true},
     		saveList: {method:'PUT', params:{}, isArray:true},
     		getCairns: {method:'PUT', params:{}, isArray:true},
