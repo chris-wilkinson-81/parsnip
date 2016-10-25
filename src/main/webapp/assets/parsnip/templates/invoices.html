@@ -1,1 +1,32 @@
 <h2>Invoices</h2>
+
+<table class="table">
+	<thead>
+		<tr>
+			<th>Customer</th>
+			<th>Status</th>
+			<th>Carrier</th>
+			<th>PARS Number</th>
+			<th>Crossing Date</th>
+			<th>Amount</th>
+			<th>Actions</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr ng-repeat="invoice in invoices">
+			<td>{{invoice.customer.name}}</td>
+			<td>{{invoice.status}}</td>
+			<td>{{invoice.carrier.name}}</td>
+			<td>{{invoice.parsNumber}}</td>
+			<td>{{invoice.crossingDate}}</td>
+			<td>{{invoice.amount}}</td>
+			<td>
+				<a href="#/invoice-details/{{invoice.id}}">View Details</a>
+			</td>
+		</tr>
+		<tr colspan="7" ng-show="invoices.length == 0"><td>Please create some invoices</td></tr>
+	</tbody>
+	<tfoot>
+		<td colspan="7"></td>
+	</tfoot>
+</table>

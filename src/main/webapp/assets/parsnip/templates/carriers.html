@@ -1,0 +1,25 @@
+<h2>Carriers</h2>
+
+<table class="table">
+	<thead>
+		<tr>
+			<th>Name</th>
+			<th>Address</th>
+			<th>Actions</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr ng-repeat="carrier in carriers">
+			<td>{{carrier.name}}</td>
+			<td><span ng-show="carrier.apartmentNumber">#{{carrier.apartmentNumber}} - </span>{{carrier.streetAddress}}, {{carrier.city}} {{carrier.province}} {{carrier.country}}, {{carrier.postalCode}}</td>
+			<td>
+				<a href="#/carrier-details/{{carrier.id}}">View Details</a> | 
+				<a href="#/carrier-edit/{{carrier.id}}">Edit</a>
+			</td>
+		</tr>
+		<tr colspan="3" ng-show="carriers.length == 0"><td>Please create some carriers</td></tr>
+	</tbody>
+	<tfoot>
+		<td colspan="3"></td>
+	</tfoot>
+</table>

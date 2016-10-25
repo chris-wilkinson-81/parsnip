@@ -1,6 +1,7 @@
 <h4><span ng-show="isCreate == true">Create</span><span ng-show="isEdit == true">Edit</span> Customer</h4>
 <form name="customerForm" novalidate>
-
+	
+	<input type="hidden" name="id" value="{{customer.id}}" />
     <div class="form-group" ng-class="{ 'has-error': customerForm.name.$invalid }" >
     	<label>Customer Name</label>
         <input type="text" class="form-control" name="name" ng-model="customer.name" value="{{customer.name}}" placeholder="Customer name" required="" />

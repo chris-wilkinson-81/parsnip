@@ -16,7 +16,11 @@
 	<script type="text/javascript" src="/assets/bower_components/angular-ui-sortable/sortable.js"></script>
 		
 	<script type="text/javascript" src="/assets/parsnip/javascripts/parsnip.js"></script>
-	<script type="text/javascript" src="/assets/parsnip/javascripts/controllers.js"></script>	
+	<script type="text/javascript" src="/assets/parsnip/javascripts/customer-controllers.js"></script>
+	<script type="text/javascript" src="/assets/parsnip/javascripts/person-controllers.js"></script>
+	<script type="text/javascript" src="/assets/parsnip/javascripts/invoice-controllers.js"></script>
+	<script type="text/javascript" src="/assets/parsnip/javascripts/vendor-controllers.js"></script>
+	<script type="text/javascript" src="/assets/parsnip/javascripts/carrier-controllers.js"></script>	
 	<script type="text/javascript" src="/assets/parsnip/javascripts/services.js"></script>	
 </head>
 <body>
@@ -29,10 +33,12 @@
         </div>
 	</header>
 	<div class="col-md-3">
-		<h4>Apps</h4>
+		<h4>Objects</h4>
 		<ul>
 			<li><a href="#/invoices">Invoices</a></li>	
-			<li><a href="#/customers">Customers</a></li>	
+			<li><a href="#/customers">Customers</a></li>
+			<li><a href="#/vendors">Vendors</a></li>
+			<li><a href="#/carriers">Carriers</a></li>	
 			<li><a href="#/people">People</a></li>			
 		</ul>
 	</div>
@@ -49,6 +55,16 @@
 		<ul class="list-inline app-actions" ng-show="topNav=='customers'">
 			<li><a href="#/customers">All Customers</a></li>
 			<li><a href="#/customer-create">Create Customer</a></li>	
+		</ul>
+		
+		<ul class="list-inline app-actions" ng-show="topNav=='vendors'">
+			<li><a href="#/vendors">All Vendors</a></li>
+			<li><a href="#/vendor-create">Create Vendor</a></li>	
+		</ul>
+		
+		<ul class="list-inline app-actions" ng-show="topNav=='carriers'">
+			<li><a href="#/carriers">All Carriers</a></li>
+			<li><a href="#/carrier-create">Create Carrier</a></li>	
 		</ul>
 		
 		<div ng-view="ng-view">

@@ -9,41 +9,41 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.wth.parsnip.model.Customer;
-import com.wth.parsnip.repository.CustomerRepository;
+import com.wth.parsnip.model.Invoice;
+import com.wth.parsnip.repository.InvoiceRepository;
 
 @RestController
-@RequestMapping("/api/customers")
-public class CustomerController {
+@RequestMapping("/api/invoices")
+public class InvoiceController {
 	
 	@Autowired
-	private CustomerRepository customerRepository;
+	private InvoiceRepository invoiceRepository;
 
 	@RequestMapping(value={"", "/"},method=RequestMethod.GET)
-	public Iterable<Customer> getCustomers() {
-		return this.customerRepository.findAll();
+	public Iterable<Invoice> getCustomers() {
+		return this.invoiceRepository.findAll();
 	}
 	
 	@RequestMapping(value={"", "/"},method=RequestMethod.POST)
 	@ResponseStatus(HttpStatus.CREATED)	
-	public Customer create(@RequestBody Customer customer) {
-		customer = this.customerRepository.save(customer);
-		return customer;
+	public Invoice create(@RequestBody Invoice invoice) {
+		invoice = this.invoiceRepository.save(invoice);
+		return invoice;
 	}
 	
 	@RequestMapping(value={"", "/"},method=RequestMethod.PUT)
 	@ResponseStatus(HttpStatus.OK)	
-	public Customer update(@RequestBody Customer customer) {
-		customer = this.customerRepository.save(customer);
-		return customer;
+	public Invoice update(@RequestBody Invoice invoice) {
+		invoice = this.invoiceRepository.save(invoice);
+		return invoice;
 	}
 	
 	@RequestMapping(value="/{id}",method=RequestMethod.GET)	
-	public Customer getCustomer(@PathVariable("id") long id) {
-		return this.customerRepository.findOne(id);
+	public Invoice getCustomer(@PathVariable("id") long id) {
+		return this.invoiceRepository.findOne(id);
 	}
-	
-	public void setCustomerRepository(CustomerRepository customerRepository) {
-		this.customerRepository = customerRepository;
+
+	public void setInvoiceRepository(InvoiceRepository invoiceRepository) {
+		this.invoiceRepository = invoiceRepository;
 	}
 }

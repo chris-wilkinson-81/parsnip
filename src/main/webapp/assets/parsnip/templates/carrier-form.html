@@ -1,0 +1,90 @@
+<h4><span ng-show="isCreate == true">Create</span><span ng-show="isEdit == true">Edit</span> Carrier</h4>
+<form name="carrierForm" novalidate>
+	
+	<input type="hidden" name="id" value="{{carrier.id}}" />
+    <div class="form-group" ng-class="{ 'has-error': carrierForm.name.$invalid }" >
+    	<label>Carrier Name</label>
+        <input type="text" class="form-control" name="name" ng-model="carrier.name" value="{{carrier.name}}" placeholder="Customer name" required="" />
+    	<div ng-show="carrierForm.$submitted || carrierForm.name.$touched">
+      		<div ng-show="carrierForm.name.$error.required">Please enter the carrier name</div>
+    	</div>
+    </div>
+    
+    <div class="form-group" ng-class="{ 'has-error': carrierForm.businessNumber.$invalid }" >
+    	<label>Business Number</label>
+        <input type="text" class="form-control" name="businessNumber" ng-model="carrier.businessNumber" value="{{carrier.businessNumber}}" placeholder="Business Number" required="" />
+    	<div ng-show="carrierForm.$submitted || carrierForm.businessNumber.$touched">
+      		<div ng-show="carrierForm.businessNumber.$error.required">Please enter the carrier's Business Number</div>
+    	</div>
+    </div>
+    
+    <div class="form-group" ng-class="{ 'has-error': carrierForm.apartmentNumber.$invalid }" >
+    	<label>Apartment or Unit # (optional)</label>
+        <input type="text" class="form-control" name="apartmentNumber" ng-model="carrier.apartmentNumber" value="{{carrier.apartmentNumber}}" placeholder="Apartment or Unit #"/>
+    </div>
+    
+    <div class="form-group" ng-class="{ 'has-error': carrierForm.streetAddress.$invalid }" >
+    	<label>Street Address</label>
+        <input type="text" class="form-control" name="streetAddress" ng-model="carrier.streetAddress" value="{{carrier.streetAddress}}" placeholder="Street Address" required="" />
+    	<div ng-show="carrierForm.$submitted || carrierForm.streetAddress.$touched">
+      		<div ng-show="carrierForm.streetAddress.$error.required">Please enter the carrier's Street Address</div>
+    	</div>
+    </div>
+    
+    <div class="form-group" ng-class="{ 'has-error': carrierForm.city.$invalid }" >
+    	<label>City</label>
+        <input type="text" class="form-control" name="city" ng-model="carrier.city" value="{{carrier.city}}" placeholder="City" required="" />
+    	<div ng-show="carrierForm.$submitted || carrierForm.city.$touched">
+      		<div ng-show="carrierForm.city.$error.required">Please enter the carrier's City</div>
+    	</div>
+    </div>
+    
+    <div class="form-group" ng-class="{ 'has-error': carrierForm.province.$invalid }" >
+    	<label>Province or State</label>
+        <input type="text" class="form-control" name="province" ng-model="carrier.province" value="{{carrier.province}}" placeholder="Province or State" required="" />
+    	<div ng-show="carrierForm.$submitted || carrierForm.province.$touched">
+      		<div ng-show="carrierForm.province.$error.required">Please enter the carrier's Province, State or Territory</div>
+    	</div>
+    </div>
+    
+    <div class="form-group" ng-class="{ 'has-error': carrierForm.country.$invalid }" >
+    	<label>Country</label>
+        <input type="text" class="form-control" name="country" ng-model="carrier.country" value="{{carrier.country}}" placeholder="Country" required="" />
+    	<div ng-show="carrierForm.$submitted || carrierForm.country.$touched">
+      		<div ng-show="carrierForm.country.$error.required">Please enter the carrier's Country</div>
+    	</div>
+    </div>
+    
+    <div class="form-group" ng-class="{ 'has-error': carrierForm.postalCode.$invalid }" >
+    	<label>Postal or Zip Code</label>
+        <input type="text" class="form-control" name="postalCode" ng-model="carrier.postalCode" value="{{carrier.postalCode}}" placeholder="Postal or Zip Code" required="" />
+    	<div ng-show="carrierForm.$submitted || carrierForm.postalCode.$touched">
+      		<div ng-show="carrierForm.postalCode.$error.required">Please enter the carrier's Postal or Zip Code</div>
+    	</div>
+    </div>
+    
+    <div class="form-group" ng-class="{ 'has-error': carrierForm.phoneNumber.$invalid }" >
+    	<label>Phone Number</label>
+        <input type="text" class="form-control" name="phoneNumber" ng-model="carrier.phoneNumber" value="{{carrier.phoneNumber}}" placeholder="Phone Number" required="" />
+    	<div ng-show="carrierForm.$submitted || carrierForm.phoneNumber.$touched">
+      		<div ng-show="carrierForm.phoneNumber.$error.required">Please enter the carrier's Phone Number</div>
+    	</div>
+    </div>
+    
+    <div class="form-group" ng-class="{ 'has-error': carrierForm.faxNumber.$invalid }" >
+    	<label>Fax Number (optional)</label>
+        <input type="text" class="form-control" name="faxNumber" ng-model="carrier.faxNumber" value="{{carrier.faxNumber}}" placeholder="Fax Number" />
+    </div>
+    
+    <div class="form-group" ng-class="{ 'has-error': carrierForm.emailAddress.$invalid }" >
+    	<label>Email Address (optional)</label>
+        <input type="text" class="form-control" name="emailAddress" ng-model="carrier.emailAddress" value="{{carrier.emailAddress}}" placeholder="General Inforation email address" />
+    </div>
+    
+    <div class="form-group" ng-class="{ 'has-error': carrierForm.websiteUrl.$invalid }" >
+    	<label>Website URL (optional)</label>
+        <input type="text" class="form-control" name="websiteUrl" ng-model="carrier.websiteUrl" value="{{carrier.websiteUrl}}" placeholder="Website URL"/>
+    </div>
+    
+    <button class="btn btn-primary" ng-click="save(carrier)">Save</button>
+</form>

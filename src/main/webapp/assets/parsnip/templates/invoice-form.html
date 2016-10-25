@@ -1,0 +1,10 @@
+<h4><span ng-show="isCreate == true">Create</span><span ng-show="isEdit == true">Edit</span> Invoice</h4>
+<form name="invoiceForm" novalidate>
+	
+	<input type="hidden" name="id" value="{{invoice.id}}" />
+	
+    <div class="form-group">
+	   	<label>Customer Name</label>
+	    <p>{{invoice.customer.name}}</p> 
+    </div>
+</form>

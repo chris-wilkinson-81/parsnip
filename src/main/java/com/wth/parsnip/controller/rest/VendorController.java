@@ -9,41 +9,37 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.wth.parsnip.model.Customer;
-import com.wth.parsnip.repository.CustomerRepository;
+import com.wth.parsnip.model.Vendor;
+import com.wth.parsnip.repository.VendorRepository;
 
 @RestController
-@RequestMapping("/api/customers")
-public class CustomerController {
+@RequestMapping("/api/vendors")
+public class VendorController {
 	
 	@Autowired
-	private CustomerRepository customerRepository;
+	private VendorRepository vendorRepository;
 
 	@RequestMapping(value={"", "/"},method=RequestMethod.GET)
-	public Iterable<Customer> getCustomers() {
-		return this.customerRepository.findAll();
+	public Iterable<Vendor> getVendors() {
+		return this.vendorRepository.findAll();
 	}
 	
 	@RequestMapping(value={"", "/"},method=RequestMethod.POST)
 	@ResponseStatus(HttpStatus.CREATED)	
-	public Customer create(@RequestBody Customer customer) {
-		customer = this.customerRepository.save(customer);
-		return customer;
+	public Vendor create(@RequestBody Vendor vendor) {
+		vendor = this.vendorRepository.save(vendor);
+		return vendor;
 	}
 	
 	@RequestMapping(value={"", "/"},method=RequestMethod.PUT)
 	@ResponseStatus(HttpStatus.OK)	
-	public Customer update(@RequestBody Customer customer) {
-		customer = this.customerRepository.save(customer);
-		return customer;
+	public Vendor update(@RequestBody Vendor vendor) {
+		vendor = this.vendorRepository.save(vendor);
+		return vendor;
 	}
 	
 	@RequestMapping(value="/{id}",method=RequestMethod.GET)	
-	public Customer getCustomer(@PathVariable("id") long id) {
-		return this.customerRepository.findOne(id);
-	}
-	
-	public void setCustomerRepository(CustomerRepository customerRepository) {
-		this.customerRepository = customerRepository;
+	public Vendor getVendor(@PathVariable("id") long id) {
+		return this.vendorRepository.findOne(id);
 	}
 }

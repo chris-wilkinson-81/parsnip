@@ -1,0 +1,25 @@
+<h2>Vendors</h2>
+
+<table class="table">
+	<thead>
+		<tr>
+			<th>Name</th>
+			<th>Address</th>
+			<th>Actions</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr ng-repeat="vendor in vendors">
+			<td>{{vendor.name}}</td>
+			<td><span ng-show="vendor.apartmentNumber">#{{vendor.apartmentNumber}} - </span>{{vendor.streetAddress}}, {{vendor.city}} {{vendor.province}} {{vendor.country}}, {{vendor.postalCode}}</td>
+			<td>
+				<a href="#/vendor-details/{{vendor.id}}">View Details</a> | 
+				<a href="#/vendor-edit/{{vendor.id}}">Edit</a>
+			</td>
+		</tr>
+		<tr colspan="3" ng-show="vendors.length == 0"><td>Please create some vendors</td></tr>
+	</tbody>
+	<tfoot>
+		<td colspan="3"></td>
+	</tfoot>
+</table>

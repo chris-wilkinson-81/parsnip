@@ -9,41 +9,41 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.wth.parsnip.model.Customer;
-import com.wth.parsnip.repository.CustomerRepository;
+import com.wth.parsnip.model.Carrier;
+import com.wth.parsnip.repository.CarrierRepository;
 
 @RestController
-@RequestMapping("/api/customers")
-public class CustomerController {
+@RequestMapping("/api/carriers")
+public class CarrierController {
 	
 	@Autowired
-	private CustomerRepository customerRepository;
+	private CarrierRepository carrierRepository;
 
 	@RequestMapping(value={"", "/"},method=RequestMethod.GET)
-	public Iterable<Customer> getCustomers() {
-		return this.customerRepository.findAll();
+	public Iterable<Carrier> getCarriers() {
+		return this.carrierRepository.findAll();
 	}
 	
 	@RequestMapping(value={"", "/"},method=RequestMethod.POST)
 	@ResponseStatus(HttpStatus.CREATED)	
-	public Customer create(@RequestBody Customer customer) {
-		customer = this.customerRepository.save(customer);
-		return customer;
+	public Carrier create(@RequestBody Carrier carrier) {
+		carrier = this.carrierRepository.save(carrier);
+		return carrier;
 	}
 	
 	@RequestMapping(value={"", "/"},method=RequestMethod.PUT)
 	@ResponseStatus(HttpStatus.OK)	
-	public Customer update(@RequestBody Customer customer) {
-		customer = this.customerRepository.save(customer);
-		return customer;
+	public Carrier update(@RequestBody Carrier carrier) {
+		carrier = this.carrierRepository.save(carrier);
+		return carrier;
 	}
 	
 	@RequestMapping(value="/{id}",method=RequestMethod.GET)	
-	public Customer getCustomer(@PathVariable("id") long id) {
-		return this.customerRepository.findOne(id);
+	public Carrier getCarrier(@PathVariable("id") long id) {
+		return this.carrierRepository.findOne(id);
 	}
-	
-	public void setCustomerRepository(CustomerRepository customerRepository) {
-		this.customerRepository = customerRepository;
+
+	public void setCarrierRepository(CarrierRepository carrierRepository) {
+		this.carrierRepository = carrierRepository;
 	}
 }

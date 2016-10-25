@@ -14,7 +14,8 @@
 			<td><span ng-show="customer.apartmentNumber">#{{customer.apartmentNumber}} - </span>{{customer.streetAddress}}, {{customer.city}} {{customer.province}} {{customer.country}}, {{customer.postalCode}}</td>
 			<td>
 				<a href="#/customer-details/{{customer.id}}">View Details</a> | 
-				<a href="#/customer-edit/{{customer.id}}">View Details</a>
+				<a href="#/customer-edit/{{customer.id}}">Edit</a> | 
+				<a href="#/invoice-create/customer/{{customer.id}}">New Invoice</a>
 			</td>
 		</tr>
 		<tr colspan="3" ng-show="customers.length == 0"><td>Please create some customers</td></tr>
